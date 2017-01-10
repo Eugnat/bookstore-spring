@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+<definition name="baseLayout" template="/WEB-INF/tiles/baseLayout.jsp">
+	<put-attribute name="title" value="Online bookstore 'Letter'" />
+	<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+	<put-attribute name="loginBar" value="/WEB-INF/tiles/loginBar.jsp" />
+	<put-attribute name="topNavigation" value="/WEB-INF/tiles/topNavigation.jsp" />
+	<put-attribute name="sideNavigation" value="/WEB-INF/tiles/sideNavigation.jsp" />
+	<put-attribute name="mainContent" value="/WEB-INF/tiles/mainContent.jsp" />
+	<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+</definition>
+
+<definition name="index" extends="baseLayout">
+	<put-attribute name="title" value="Online bookstore 'Letter'" />
+</definition>
+
+<definition name="companyInfo" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/companyInfo.jsp" />
+</definition>
+
+<definition name="payment" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/payment.jsp" />
+</definition>
+
+<definition name="delivery" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/delivery.jsp" />
+</definition>
+
+<definition name="legal" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/legal.jsp" />
+</definition>
+
+<definition name="contacts" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/contacts.jsp" />
+</definition>
+
+</tiles-definitions>
