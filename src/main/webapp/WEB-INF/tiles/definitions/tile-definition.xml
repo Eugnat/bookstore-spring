@@ -36,4 +36,8 @@
 	<put-attribute name="mainContent" value="/WEB-INF/views/contacts.jsp" />
 </definition>
 
+<definition name="books" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/books.jsp" />
+</definition>
+
 </tiles-definitions>
