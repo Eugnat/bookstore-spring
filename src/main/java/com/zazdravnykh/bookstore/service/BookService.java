@@ -10,8 +10,14 @@ public interface BookService {
 
 	Book showBookById(int id);
 
-	void saveBook(String title, String author);
-
 	void saveBook(Book book);
+
+	List<Book> findByCategory(String category);
+
+	List<Book> findByAuthor(String author);
+
+	List<Book> findByTitle(String title);
+
+	List<Book> findByIsbn(String isbn);
 
 }

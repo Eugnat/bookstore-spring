@@ -5,11 +5,11 @@
 
 <nav class="side-navigation">
 			<ul>
-				<li><a href="bestsellers.html">Бестселлеры</a></li>
-				<li><a href="fiction.html">Художественная</a></li>
-				<li><a href="publicity.html">Публицистика</a></li>
-				<li><a href="children.html">Детская книга</a></li>
-				<li><a href="history.html">История</a></li>
-				<li><a href="poetry.html">Поэзия</a></li>
+				<li><a href="<c:url value="/books/bestsellers"/>">Бестселлеры</a></li>
+				<li><a href="<c:url value="/books/category?cat=fiction"/>">Художественная</a></li>
+				<li><a href="<c:url value="/books/category?cat=essays"/>">Публицистика</a></li>
+				<li><a href="<c:url value="/books/category?cat=children"/>">Детская книга</a></li>
+				<li><a href="<c:url value="/books/category?cat=history"/>">История</a></li>
+				<li><a href="<c:url value="/books/category?cat=poetry"/>">Поэзия</a></li>
 			</ul>
 		</nav>	

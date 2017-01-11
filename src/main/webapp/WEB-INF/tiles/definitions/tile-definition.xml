@@ -40,4 +40,16 @@
 	<put-attribute name="mainContent" value="/WEB-INF/views/books.jsp" />
 </definition>
 
+<definition name="showCategory" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/showCategory.jsp" />
+</definition>
+
+<definition name="bookAdded" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/bookAdded.jsp" />
+</definition>
+
+<definition name="addBook" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/addBook.jsp" />
+</definition>
+
 </tiles-definitions>
