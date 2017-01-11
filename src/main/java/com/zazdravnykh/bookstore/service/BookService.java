@@ -12,4 +12,6 @@ public interface BookService {
 
 	void saveBook(String title, String author);
 
+	void saveBook(Book book);
+
 }

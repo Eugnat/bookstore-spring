@@ -2,18 +2,20 @@ package com.zazdravnykh.bookstore.service.impl;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.zazdravnykh.bookstore.domain.Book;
-import com.zazdravnykh.bookstore.factory.HibernateUtil;
 import com.zazdravnykh.bookstore.repository.BookDAO;
 import com.zazdravnykh.bookstore.service.BookService;
 
 @Service
+@Repository
+@Transactional
+@Lazy
 public class BookServiceImpl implements BookService {
 
 	@Autowired
@@ -22,22 +24,14 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public List<Book> showAllBooks() {
 
-		EntityManager em = HibernateUtil.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		List<Book> list = bookDAO.findAll();
-		tx.commit();
+		List<Book> list = (List<Book>) bookDAO.findAll();
 		return list;
 	}
 
 	@Override
 	public Book showBookById(int id) {
 
-		EntityManager em = HibernateUtil.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Book book = bookDAO.findById(id);
-		tx.commit();
+		Book book = bookDAO.findOne(id);
 
 		return book;
 
@@ -46,11 +40,14 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public void saveBook(String title, String author) {
 
-		EntityManager em = HibernateUtil.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		bookDAO.saveBook(title, author);
-		tx.commit();
+		bookDAO.save(new Book(title, author));
+
+	}
+
+	@Override
+	public void saveBook(Book book) {
+
+		bookDAO.save(book);
 
 	}
 

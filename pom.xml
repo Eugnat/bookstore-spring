@@ -27,16 +27,28 @@
  		<version>1.2</version>
  	</dependency>
  
- 	<dependency>
-    	<groupId>org.hibernate</groupId>
-    	<artifactId>hibernate-core</artifactId>
-    	<version>5.2.1.Final</version>
-	</dependency>
+ <dependency>
+   <groupId>org.hibernate</groupId>
+   <artifactId>hibernate-entitymanager</artifactId>
+   <version>5.2.2.Final</version>
+</dependency>
+	
+	<dependency>
+	<groupId>org.springframework</groupId>
+   <artifactId>spring-orm</artifactId>
+   <version>4.3.3.RELEASE</version>
+   </dependency>
+   
+   <dependency>
+   <groupId>org.springframework.data</groupId>
+   <artifactId>spring-data-jpa</artifactId>
+   <version>1.10.3.RELEASE</version>
+</dependency>
 	
 	<dependency>
     	<groupId>mysql</groupId>
     	<artifactId>mysql-connector-java</artifactId>
-    	<version>5.1.38</version>
+    	<version>5.1.30</version>
 	</dependency>
  	
  	<dependency>
@@ -53,16 +65,14 @@
 	</dependency>
 	
 	<dependency>
-    	<groupId>org.hibernate</groupId>
-    	<artifactId>hibernate-validator</artifactId>
-    	<version>5.3.4.Final</version>
-	</dependency>
-	
-	<dependency>
     	<groupId>org.apache.tiles</groupId>
     	<artifactId>tiles-jsp</artifactId>
     	<version>3.0.7</version>
 	</dependency>
+	
+
+	
+	
   	
   </dependencies>
   	
