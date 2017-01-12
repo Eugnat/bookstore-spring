@@ -182,6 +182,30 @@ header a {
 	margin-bottom: 20px;
 }
 
+.addbook label {
+	display: inline-block;
+    float: left;
+    clear: left;
+    width: 150px;
+    text-align: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.addbook input {
+	display: inline-block;
+	float: left;
+	margin-bottom: 10px;
+}
+
+.addbook select {
+	display: inline-block;
+	float: left;
+	margin-bottom: 10px;
+}
+
+
+
 footer {
 	position: relative;
 	float: left;

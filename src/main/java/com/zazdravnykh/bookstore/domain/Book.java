@@ -6,8 +6,10 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.NaturalId;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity(name = "Book")
 public class Book {
@@ -33,8 +35,8 @@ public class Book {
 	@Enumerated(EnumType.STRING)
 	private Category category;
 
-	@Column(name = "URL")
-	private String imageUrl;
+	@Transient
+	private MultipartFile imageFile;
 
 	@Column(name = "PUBLISHING_HOUSE")
 	private String publishingHouse;
@@ -85,12 +87,12 @@ public class Book {
 		this.price = price;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public MultipartFile getImageFile() {
+		return imageFile;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setImageFile(MultipartFile imageFile) {
+		this.imageFile = imageFile;
 	}
 
 	public String getPublishingHouse() {

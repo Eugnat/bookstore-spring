@@ -21,6 +21,14 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <property name="suffix" value=".jsp" />
 </bean>
 
+<bean id= "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+<property name="basename" value="messages"/>
+</bean>
+
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+<property name="maxUploadSize" value="10240000"/>
+</bean>
+
 <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
 <property name="order" value="-2" />

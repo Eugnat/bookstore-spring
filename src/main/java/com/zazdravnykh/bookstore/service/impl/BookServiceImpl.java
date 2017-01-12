@@ -73,4 +73,33 @@ public class BookServiceImpl implements BookService {
 		return bookDAO.findByIsbn(isbn);
 	}
 
+	@Override
+	public List<Book> findByBestseller() {
+
+		return bookDAO.findByBestsellerTrue();
+	}
+
+	@Override
+	public List<Book> sortByPrice(List<Book> booklist, boolean asc) {
+
+		if (asc)
+			booklist.sort((a, b) -> a.getPrice() - b.getPrice());
+		else
+			booklist.sort((a, b) -> b.getPrice() - a.getPrice());
+
+		return booklist;
+	}
+
+	@Override
+	public List<Book> sortByTitle(List<Book> booklist, boolean asc) {
+
+		if (asc)
+			booklist.sort((a, b) -> a.getTitle().compareToIgnoreCase(b.getTitle()));
+		else
+			booklist.sort((a, b) -> b.getTitle().compareToIgnoreCase(a.getTitle()));
+
+		return booklist;
+
+	}
+
 }

@@ -20,4 +20,10 @@ public interface BookService {
 
 	List<Book> findByIsbn(String isbn);
 
+	List<Book> findByBestseller();
+
+	List<Book> sortByPrice(List<Book> booklist, boolean asc);
+
+	List<Book> sortByTitle(List<Book> booklist, boolean asc);
+
 }
