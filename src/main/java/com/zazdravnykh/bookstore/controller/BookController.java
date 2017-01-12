@@ -4,10 +4,14 @@ import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +27,11 @@ import com.zazdravnykh.bookstore.service.BookService;
 public class BookController {
 
 	@Autowired
-	BookService bookService;
+	private BookService bookService;
+
+	@InitBinder
+	public void initialiseBinder(WebDataBinder binder) {
+	}
 
 	@RequestMapping("/category")
 	public String showCategory(@RequestParam("cat") String category, Model model) {
@@ -49,7 +57,10 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String processAddBookForm(@ModelAttribute("newBook") Book newBook, HttpServletRequest request) {
+	public String processAddBookForm(@ModelAttribute("newBook") @Valid Book newBook, BindingResult result, HttpServletRequest request) {
+
+		if (result.hasErrors())
+			return "addBook";
 
 		MultipartFile bookImage = newBook.getImageFile();
 

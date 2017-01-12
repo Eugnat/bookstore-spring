@@ -12,7 +12,7 @@ http://www.springframework.org/schema/context/spring-context.xsd
 http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-<mvc:annotation-driven enable-matrix-variables="true" />
+<mvc:annotation-driven enable-matrix-variables="true" validator="validator" />
 <mvc:resources location="/resources/" mapping="/resources/**"/>
 <context:component-scan base-package="com.zazdravnykh.bookstore" />
 
@@ -21,8 +21,14 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <property name="suffix" value=".jsp" />
 </bean>
 
-<bean id= "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-<property name="basename" value="messages"/>
+<!-- <bean id= "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"> -->
+<!-- <property name="basename" value="messages"/> -->
+<!-- </bean> -->
+
+<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    <property name="basename" value="classpath:messages" />
+    <property name="fileEncodings" value="UTF-8" />
+    <property name="defaultEncoding" value="UTF-8" />
 </bean>
 
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -41,6 +47,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 </list>
 </property>
 </bean>
+
+<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+	<property name="validationMessageSource" ref="messageSource"/>
+</bean>
+
 
 	
 </beans>

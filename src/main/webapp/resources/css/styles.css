@@ -204,6 +204,13 @@ header a {
 	margin-bottom: 10px;
 }
 
+.errormessage {
+	color: red;
+	display: inline-block;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	float: left;
+}
 
 
 footer {

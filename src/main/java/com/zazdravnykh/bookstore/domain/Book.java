@@ -7,8 +7,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.annotations.NaturalId;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity(name = "Book")
@@ -20,16 +25,24 @@ public class Book {
 	int id;
 
 	@Column(name = "TITLE")
+	@Pattern(regexp = ".{1,50}", message = "{Pattern.Book.title.validation}")
+	@NotBlank(message = "{NotBlank.Book.title.validation}")
 	private String title;
 
 	@Column(name = "AUTHOR")
+	@Pattern(regexp = ".{1,30}", message = "{Pattern.Book.author.validation}")
+	@NotBlank(message = "{NotBlank.Book.author.validation}")
 	private String author;
 
 	@Column(name = "PAGE_NUMBER")
+	@Min(value = 1, message = "{Min.Book.pageNumber.validation}")
+	@Max(value = 3000, message = "{Max.Book.pageNumber.validation}")
 	private int pageNumber;
 
 	@Column(name = "ISBN")
 	@NaturalId
+	@NotBlank(message = "{NotBlank.Book.isbn.validation}")
+	@Pattern(regexp = "[0-9]{13}", message = "{Pattern.Book.isbn.validation}")
 	private String isbn;
 
 	@Enumerated(EnumType.STRING)
@@ -39,21 +52,28 @@ public class Book {
 	private MultipartFile imageFile;
 
 	@Column(name = "PUBLISHING_HOUSE")
+	@NotBlank(message = "{NotEmpty.Book.publishingHouse.validation}")
 	private String publishingHouse;
 
 	@Column(name = "ISSUE_YEAR")
+	@Min(value = 1950, message = "{Min.Book.issueYear.validation}")
+	@Max(value = 2017, message = "{Max.Book.issueYear.validation}")
 	private int issueYear;
 
 	@Column(name = "PRICE")
+	@Digits(fraction = 0, integer = 4, message = "{Digits.Book.price.validation}")
+	@Min(value = 0, message = "{Min.Book.price.validation}")
 	private int price;
 
 	@Column(name = "BESTSELLER")
 	private Boolean bestseller;
 
 	@Column(name = "LANGUAGE")
+	@NotBlank(message = "{NotBlank.Book.language.validation}")
 	private String language;
 
 	@Column(name = "COPY_NUMBER")
+	@Min(value = 1, message = "{Min.Book.copyNumber.validation}")
 	private int copyNumber;
 
 	public Book() {
