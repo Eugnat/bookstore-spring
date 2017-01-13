@@ -4,6 +4,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="main-content">
-	<p>Book added.</p>
-	<a href="<c:url value="/"/>">Вернуться на стартовую страницу.</a>
+	<p>Книга добавлена успешно.</p>
+	<br>
+	<p><a href="<c:url value="/"/>">Вернуться на стартовую страницу</a></p>
+	<br>
+	<p><a href="<c:url value="/books/add"/>">Добавить еще одну книгу</a></p>
 </div>

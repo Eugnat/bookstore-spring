@@ -1,6 +1,7 @@
 package com.zazdravnykh.bookstore.controller;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -57,10 +58,12 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String processAddBookForm(@ModelAttribute("newBook") @Valid Book newBook, BindingResult result, HttpServletRequest request) {
+	public String processAddBookForm(@ModelAttribute("newBook") @Valid Book newBook, BindingResult result, HttpServletRequest request) throws UnsupportedEncodingException {
 
 		if (result.hasErrors())
 			return "addBook";
+
+		request.setCharacterEncoding("UTF-8");
 
 		MultipartFile bookImage = newBook.getImageFile();
 
@@ -77,6 +80,19 @@ public class BookController {
 		bookService.saveBook(newBook);
 
 		return "bookAdded";
+	}
+
+	@RequestMapping(value = "/book")
+	public String showBook(@RequestParam("id") String id, Model model) {
+
+		int bookId = Integer.parseInt(id);
+
+		Book book = bookService.findOne(bookId);
+
+		model.addAttribute("book", book);
+
+		return "showBook";
+
 	}
 
 }

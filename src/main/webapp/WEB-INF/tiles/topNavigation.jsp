@@ -10,5 +10,6 @@
 				<li><a href="<c:url value="/info/payment"/>">Оплата</a></li>
 				<li><a href="<c:url value="/info/delivery"/>">Доставка</a></li>
 				<li><a href="<c:url value="/info/contacts"/>">Контакты</a></li>
+				<li><a href="<c:url value="/info/search"/>">Поиск</a></li>
 			</ul>
 		</nav>

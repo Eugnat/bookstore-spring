@@ -37,4 +37,10 @@ public class InfoController {
 		return "legal";
 	}
 
+	@RequestMapping("/search")
+	public String search() {
+
+		return "searchBook";
+	}
+
 }

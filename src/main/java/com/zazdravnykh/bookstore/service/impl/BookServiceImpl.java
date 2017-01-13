@@ -102,4 +102,10 @@ public class BookServiceImpl implements BookService {
 
 	}
 
+	@Override
+	public Book findOne(int id) {
+
+		return bookDAO.findOne(id);
+	}
+
 }

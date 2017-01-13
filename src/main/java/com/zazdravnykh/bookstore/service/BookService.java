@@ -26,4 +26,6 @@ public interface BookService {
 
 	List<Book> sortByTitle(List<Book> booklist, boolean asc);
 
+	Book findOne(int id);
+
 }

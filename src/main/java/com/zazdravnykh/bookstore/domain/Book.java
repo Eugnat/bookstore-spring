@@ -30,7 +30,7 @@ public class Book {
 	private String title;
 
 	@Column(name = "AUTHOR")
-	@Pattern(regexp = ".{1,30}", message = "{Pattern.Book.author.validation}")
+	@Pattern(regexp = ".{1,50}", message = "{Pattern.Book.author.validation}")
 	@NotBlank(message = "{NotBlank.Book.author.validation}")
 	private String author;
 
@@ -46,6 +46,7 @@ public class Book {
 	private String isbn;
 
 	@Enumerated(EnumType.STRING)
+	@Column(name = "CATEGORY")
 	private Category category;
 
 	@Transient

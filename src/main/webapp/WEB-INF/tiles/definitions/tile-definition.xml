@@ -52,4 +52,12 @@
 	<put-attribute name="mainContent" value="/WEB-INF/views/addBook.jsp" />
 </definition>
 
+<definition name="showBook" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/showBook.jsp" />
+</definition>
+
+<definition name="searchBook" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/searchBook.jsp" />
+</definition>
+
 </tiles-definitions>
