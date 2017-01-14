@@ -60,4 +60,8 @@
 	<put-attribute name="mainContent" value="/WEB-INF/views/searchBook.jsp" />
 </definition>
 
+<definition name="cart" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/cart.jsp" />
+</definition>
+
 </tiles-definitions>

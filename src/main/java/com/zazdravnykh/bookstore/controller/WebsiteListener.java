@@ -1,24 +1,36 @@
 package com.zazdravnykh.bookstore.controller;
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
 
-import com.zazdravnykh.bookstore.factory.HibernateUtil;
+import com.zazdravnykh.bookstore.domain.Cart;
 
-public class WebsiteListener implements ServletContextListener {
+public class WebsiteListener implements HttpSessionListener {
 
 	public WebsiteListener() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void contextDestroyed(ServletContextEvent arg0) {
-		HibernateUtil.shutdown();
+	public void sessionCreated(HttpSessionEvent se) {
+
+		HttpSession session = se.getSession();
+
+		Cart cart = new Cart();
+
+		session.setAttribute("cart", cart);
+
 	}
 
 	@Override
-	public void contextInitialized(ServletContextEvent arg0) {
-		HibernateUtil.openEntityManager();
+	public void sessionDestroyed(HttpSessionEvent se) {
+
+		HttpSession session = se.getSession();
+
+		if (session.getAttribute("cart") != null)
+			session.removeAttribute("cart");
+
 	}
 
 }

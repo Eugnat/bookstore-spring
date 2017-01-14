@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.zazdravnykh.bookstore.domain.Book;
+import com.zazdravnykh.bookstore.domain.Cart;
 import com.zazdravnykh.bookstore.domain.Category;
 import com.zazdravnykh.bookstore.service.BookService;
+import com.zazdravnykh.bookstore.service.CartService;
 
 @Controller
 @RequestMapping("/books")
@@ -30,11 +32,14 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 
+	@Autowired
+	private CartService cartService;
+
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder) {
 	}
 
-	@RequestMapping("/category")
+	@RequestMapping(value = "/category", method = RequestMethod.GET)
 	public String showCategory(@RequestParam("cat") String category, Model model) {
 
 		List<Book> list = bookService.findByCategory(category);
@@ -43,6 +48,22 @@ public class BookController {
 
 		return "showCategory";
 
+	}
+
+	@RequestMapping(value = "/addToCart", method = RequestMethod.POST)
+	public String showCategory(@RequestParam("itemId") String id, HttpServletRequest request) {
+
+		int itemId = Integer.parseInt(id);
+
+		System.out.println("Cart: " + request.getSession().getAttribute("cart"));
+
+		Cart cart = (Cart) request.getSession().getAttribute("cart");
+
+		Cart updatedCart = cartService.addOrderItem(itemId, cart);
+
+		request.getSession().setAttribute("cart", updatedCart);
+
+		return "cart";
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -93,6 +114,16 @@ public class BookController {
 
 		return "showBook";
 
+	}
+
+	@RequestMapping(value = "/bestsellers")
+	public String showBook(Model model) {
+
+		List<Book> list = bookService.findByBestseller();
+
+		model.addAttribute("booklist", list);
+
+		return "books";
 	}
 
 }

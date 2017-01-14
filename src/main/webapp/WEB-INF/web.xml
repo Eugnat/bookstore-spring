@@ -35,4 +35,8 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
   
+  <listener>
+  	<listener-class>com.zazdravnykh.bookstore.controller.WebsiteListener</listener-class>
+  </listener>
+  
 </web-app>
