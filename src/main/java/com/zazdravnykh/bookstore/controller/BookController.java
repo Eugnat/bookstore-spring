@@ -63,7 +63,7 @@ public class BookController {
 
 		request.getSession().setAttribute("cart", updatedCart);
 
-		return "cart";
+		return "redirect:/cart/overview";
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)

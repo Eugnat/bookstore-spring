@@ -21,6 +21,8 @@ public class WebsiteListener implements HttpSessionListener {
 
 		session.setAttribute("cart", cart);
 
+		System.out.println("Session started");
+
 	}
 
 	@Override
@@ -30,6 +32,8 @@ public class WebsiteListener implements HttpSessionListener {
 
 		if (session.getAttribute("cart") != null)
 			session.removeAttribute("cart");
+
+		System.out.println("Session closed");
 
 	}
 

@@ -248,6 +248,22 @@ header a {
 	left: 20%;
 }
 
+.cart {
+	margin-left: 2%;
+	position: relative;
+	border-style: solid;
+	border-width: thin;
+	border-collapse: collapse;
+	width: 80%;
+}
+
+.cart td {
+	position: relative;
+	width: 50%;
+	border-style: solid;
+	border-width: thin;
+}
+
 
 footer {
 	position: relative;
