@@ -55,8 +55,6 @@ public class BookController {
 
 		int itemId = Integer.parseInt(id);
 
-		System.out.println("Cart: " + request.getSession().getAttribute("cart"));
-
 		Cart cart = (Cart) request.getSession().getAttribute("cart");
 
 		Cart updatedCart = cartService.addOrderItem(itemId, cart);

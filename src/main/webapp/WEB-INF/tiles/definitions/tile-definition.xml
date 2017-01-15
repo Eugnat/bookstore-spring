@@ -64,4 +64,16 @@
 	<put-attribute name="mainContent" value="/WEB-INF/views/cart.jsp" />
 </definition>
 
+<definition name="errorPage" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/errorPage.jsp" />
+</definition>
+
+<definition name="checkout" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/checkout.jsp" />
+</definition>
+
+<definition name="paymentFinal" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/paymentFinal.jsp" />
+</definition>
+
 </tiles-definitions>

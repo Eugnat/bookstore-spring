@@ -9,8 +9,15 @@
 		</c:if>
 		<c:forEach items="${booklist}" var="book">
 		<table class="bookshow">
-			<tr><td>Название: <td>${book.title}</td><td rowspan="6" class="imagecolumn">
-			<a href="<c:url value="/books/book?id=${book.id}"/>"><img src="<c:url value="/resources/images/${book.isbn}.jpg"/>" width="270" height="425"></a></td></tr>
+			<tr><td>Название: <td>${book.title}</td>
+				<td rowspan="6" class="imagecolumn">
+					<a href="<c:url value="/books/book?id=${book.id}"/>"><img src="<c:url value="/resources/images/${book.isbn}.jpg"/>" width="270" height="425"></a>
+					<form action="<c:url value="/books/addToCart"/>" method="post">
+						<input type="hidden" name="itemId" value="${book.id}" />
+						<input type="submit" value="Добавить в корзину" />
+					</form>
+				</td>
+			</tr>
 			<tr><td>Автор: </td><td>${book.author}</td></tr>
 			<tr><td>ISBN: </td><td>${book.isbn}</td></tr>
 			<tr><td>Издательство: </td><td>${book.publishingHouse}</td></tr>

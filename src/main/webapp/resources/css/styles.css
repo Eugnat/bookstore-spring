@@ -254,14 +254,31 @@ header a {
 	border-style: solid;
 	border-width: thin;
 	border-collapse: collapse;
-	width: 80%;
+	width: 90%;
 }
 
 .cart td {
 	position: relative;
-	width: 50%;
+	width: 33%;
 	border-style: solid;
 	border-width: thin;
+}
+
+.cart td:nth-child(1) {
+	font-weight: bold;
+}
+
+.cart td:nth-child(2) {
+	text-align: right;
+}
+
+.cart form {
+	position: relative;
+	top: 20%;
+	left: 40%;
+}
+.cart form input {
+	text-align: right;
 }
 
 
