@@ -3,6 +3,8 @@ package com.zazdravnykh.bookstore.config;
 import java.util.Properties;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -16,6 +18,9 @@ import com.zazdravnykh.bookstore.repository.BookDAO;
 @Configuration
 @EnableJpaRepositories(basePackageClasses = BookDAO.class)
 public class DBConfig {
+
+	@Autowired
+	ApplicationContext context;
 
 	@Bean
 	DriverManagerDataSource dataSource() {

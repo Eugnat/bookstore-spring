@@ -5,21 +5,8 @@ import java.util.Set;
 
 public class Cart {
 
-	public void setItemList(Set<OrderItem> itemList) {
-		this.itemList = itemList;
-	}
-
-	public void setTotal(int total) {
-		this.total = total;
-	}
-
 	private Set<OrderItem> itemList = new HashSet<>();
 	private int cartQuantity;
-
-	@Override
-	public String toString() {
-		return "Cart [itemList=" + itemList + ", cartQuantity=" + cartQuantity + ", total=" + total + "]";
-	}
 
 	private int total = 0;
 
@@ -53,6 +40,14 @@ public class Cart {
 		this.cartQuantity = cartQuantity;
 	}
 
+	public void setItemList(Set<OrderItem> itemList) {
+		this.itemList = itemList;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
 	public int getTotal() {
 
 		total = 0;
@@ -62,6 +57,11 @@ public class Cart {
 		}
 
 		return total;
+	}
+
+	@Override
+	public String toString() {
+		return "Cart [itemList=" + itemList + ", cartQuantity=" + cartQuantity + ", total=" + total + "]";
 	}
 
 }

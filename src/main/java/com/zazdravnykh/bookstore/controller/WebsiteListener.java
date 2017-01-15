@@ -30,8 +30,9 @@ public class WebsiteListener implements HttpSessionListener {
 
 		HttpSession session = se.getSession();
 
+		Cart cart = new Cart();
 		if (session.getAttribute("cart") != null)
-			session.removeAttribute("cart");
+			session.setAttribute("cart", cart);
 
 		System.out.println("Session closed");
 
