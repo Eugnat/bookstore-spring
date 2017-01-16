@@ -20,13 +20,13 @@
 					<p>${item.itemQuantity}</p>
 				</td>
 			</tr>
-			<tr>
+		</c:forEach>
+		<tr>
 				<td>Итого:</td>
 				<td>
 					<p>${cart.total} грн.</p>
 				</td>
 			</tr>
-		</c:forEach>
 	</table>
 	<form action="<c:url value="/cart/payment" />" method="post">
 		<input type="submit" value="Оплатить" />

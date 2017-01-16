@@ -1,13 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="<c:url value="/resources/css/styles.css" />">
-</head>
-<body>
-<h2>Hello World!</h2>
-<p>${tagline}</p>
-<p><c:out value="Just a test line" /></p>
-</body>
-</html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+
+<div class="main-content">
+<c:forEach items="${booklist}" var="book">
+		<table class="bookshow">
+			<tr>
+				<td>Название: <td>${book.title}</td>
+				<td rowspan="6" class="imagecolumn">
+					<a href="<c:url value="/books/book?id=${book.id}"/>"><img src="<c:url value="/resources/images/${book.isbn}.jpg"/>" width="270" height="425"></a>
+					<form action="<c:url value="/books/addToCart"/>" method="post">
+						<input type="hidden" name="itemId" value="${book.id}" />
+						<input type="submit" value="Добавить в корзину" />
+					</form>
+				</td>
+			</tr>
+			<tr><td>Автор: </td><td>${book.author}</td></tr>
+			<tr><td>ISBN: </td><td>${book.isbn}</td></tr>
+			<tr><td>Издательство: </td><td>${book.publishingHouse}</td></tr>
+			<tr><td>Год издания: </td><td>${book.issueYear}</td></tr>
+			<tr><td>Цена: </td><td>${book.price} грн.</td></tr>
+		</table>
+		<br />
+		</c:forEach>
+</div>

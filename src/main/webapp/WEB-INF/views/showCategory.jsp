@@ -12,7 +12,6 @@
 					<a href="<c:url value="/books/book?id=${book.id}"/>"><img src="<c:url value="/resources/images/${book.isbn}.jpg"/>" width="270" height="425"></a>
 					<form action="<c:url value="/books/addToCart"/>" method="post">
 						<input type="hidden" name="itemId" value="${book.id}" />
-						<input type="hidden" name="cat" value="${param.cat}" />
 						<input type="submit" value="Добавить в корзину" />
 					</form>
 				</td>

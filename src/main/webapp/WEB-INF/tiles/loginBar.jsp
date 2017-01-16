@@ -5,7 +5,8 @@
 
 <div class="login-bar">
 	<ul>
-		<li><a href="<c:url value="/cart/overview"/>">Моя корзина [${cart.cartQuantity}]</a></li>
+		<li><a href="<c:url value="/cart/overview"/>">Моя корзина 
+		[<c:if test="${cart != null}"><c:out value="${cart.cartQuantity}" /></c:if><c:if test="${cart == null}"><c:out value="0" /></c:if>]</a></li>
 		<li><a href="<c:url value="/login"/>">Войти</a></li>
 		<li><a href="<c:url value="/books/add" />">Добавить книгу</a>
 		</ul>
