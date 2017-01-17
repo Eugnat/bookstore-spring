@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:context="http://www.springframework.org/schema/context" 
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:security="http://www.springframework.org/schema/security"
+xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+<security:http auto-config="true" use-expressions="true">
+	<security:intercept-url pattern="/books/add" access="hasRole('ROLE_ADMIN')" />
+
+	<security:form-login login-page="/login"
+						 username-parameter="j_username" 
+						 password-parameter="j_password" 
+						 login-processing-url="/j_spring_security_check"
+						 default-target-url="/books/add"
+						 authentication-failure-url="/loginfailed"/>
+
+	<security:logout logout-url="/j_spring_security_logout"
+					 logout-success-url="/logout" />
+	<security:csrf disabled="true" />
+</security:http>
+
+<security:authentication-manager>
+	<security:authentication-provider>
+		<security:user-service>
+			<security:user name="root" password= "root" authorities="ROLE_ADMIN" />
+		</security:user-service>
+	</security:authentication-provider>
+</security:authentication-manager>
+
+</beans>
+
