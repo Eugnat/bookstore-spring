@@ -19,7 +19,10 @@ public class WebsiteListener implements HttpSessionListener {
 
 		Cart cart = new Cart();
 
+		String login = "false";
+
 		session.setAttribute("cart", cart);
+		session.setAttribute("login", login);
 
 		System.out.println("Session started");
 
@@ -34,7 +37,10 @@ public class WebsiteListener implements HttpSessionListener {
 		if (session.getAttribute("cart") != null)
 			session.setAttribute("cart", cart);
 
-		System.out.println("Session closed");
+		String login = "false";
+		session.setAttribute("login", login);
+
+		System.out.println("Session closed, user logout");
 
 	}
 

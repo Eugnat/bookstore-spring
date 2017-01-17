@@ -7,7 +7,13 @@
 	<ul>
 		<li><a href="<c:url value="/cart/overview"/>">Моя корзина 
 		[<c:if test="${cart != null}"><c:out value="${cart.cartQuantity}" /></c:if><c:if test="${cart == null}"><c:out value="0" /></c:if>]</a></li>
+		<c:if test="${login != 'true'}">
 		<li><a href="<c:url value="/login"/>">Войти</a></li>
-		<li><a href="<c:url value="/books/add" />">Добавить книгу</a>
+		</c:if>
+		<li><a href="<c:url value="/books/add" />">Добавить книгу</a></li>
+		<c:if test="${login == 'true'}">
+		<li><a class="logout-button" href="<c:url value="/j_spring_security_logout" />">Выйти</a></li>
+		</c:if>
+		
 		</ul>
 </div>

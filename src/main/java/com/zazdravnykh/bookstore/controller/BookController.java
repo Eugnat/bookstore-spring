@@ -65,10 +65,12 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String addBook(Model model) {
+	public String addBook(Model model, HttpServletRequest request) {
 
 		Book book = new Book();
 		Category[] categoryList = Category.values();
+
+		request.getSession().setAttribute("login", "true");
 
 		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("newBook", book);

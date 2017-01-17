@@ -281,6 +281,12 @@ header a {
 	text-align: right;
 }
 
+.logout-button {
+	display: inline-block;
+	font: white;
+	background-color: green;
+}
+
 
 footer {
 	position: relative;

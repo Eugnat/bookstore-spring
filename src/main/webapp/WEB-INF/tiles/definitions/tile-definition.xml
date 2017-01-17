@@ -76,4 +76,8 @@
 	<put-attribute name="mainContent" value="/WEB-INF/views/paymentFinal.jsp" />
 </definition>
 
+<definition name="login" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/login.jsp" />
+</definition>
+
 </tiles-definitions>
