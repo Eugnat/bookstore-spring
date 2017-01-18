@@ -7,11 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesView;
 
 import com.zazdravnykh.bookstore.repository.BookDAO;
 
@@ -53,6 +60,53 @@ public class DBConfig {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
 		return transactionManager;
+	}
+
+	@Bean
+	public TilesConfigurer tilesConfigurer() {
+		TilesConfigurer tiles = new TilesConfigurer();
+		tiles.setDefinitions(new String[] { "/WEB-INF/tiles/definitions/tile-definition.xml" });
+		tiles.setCheckRefresh(true);
+		return tiles;
+	}
+
+	@Bean
+	ViewResolver viewResolver() {
+		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+		resolver.setOrder(-2);
+		resolver.setViewClass(TilesView.class);
+		return resolver;
+	}
+
+	@Bean
+	CommonsMultipartResolver multipartResolver() {
+		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+		resolver.setMaxUploadSize(1024000);
+		return resolver;
+	}
+
+	@Bean("messageSource")
+	ReloadableResourceBundleMessageSource reloadableResourceBundleMessageSource() {
+
+		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+
+		messageSource.setBasename("classpath:messages");
+
+		Properties properties = new Properties();
+		properties.setProperty("fileEncodings", "UTF-8");
+		messageSource.setFileEncodings(properties);
+		messageSource.setDefaultEncoding("UTF-8");
+		return messageSource;
+	}
+
+	@Bean("validator")
+	LocalValidatorFactoryBean validator() {
+
+		LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+
+		validator.setValidationMessageSource(reloadableResourceBundleMessageSource());
+
+		return validator;
 	}
 
 }
