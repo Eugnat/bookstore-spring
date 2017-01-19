@@ -283,8 +283,7 @@ header a {
 
 .logout-button {
 	display: inline-block;
-	font: white;
-	background-color: green;
+	color: red;
 }
 
 
