@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,8 +40,8 @@ public class BookController {
 	public void initialiseBinder(WebDataBinder binder) {
 	}
 
-	@RequestMapping(value = "/category", method = RequestMethod.GET)
-	public String showCategory(@RequestParam("cat") String category, Model model) {
+	@RequestMapping(value = "/category/{cat}", method = RequestMethod.GET)
+	public String showCategory(@PathVariable("cat") String category, Model model) {
 
 		List<Book> list = bookService.findByCategory(category);
 
@@ -103,8 +104,8 @@ public class BookController {
 		return "bookAdded";
 	}
 
-	@RequestMapping(value = "/book")
-	public String showBook(@RequestParam("id") String id, Model model) {
+	@RequestMapping(value = "/book/{id}")
+	public String showBookById(@PathVariable("id") String id, Model model) {
 
 		int bookId = Integer.parseInt(id);
 
@@ -113,7 +114,6 @@ public class BookController {
 		model.addAttribute("book", book);
 
 		return "showBook";
-
 	}
 
 	@RequestMapping(value = "/bestsellers")

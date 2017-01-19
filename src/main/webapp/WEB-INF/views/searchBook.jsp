@@ -4,20 +4,20 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <div class="main-content">
-<h3>Введите критерии для поиска</h3>
+<h3><spring:message code="searchPage.enterCriteria" /></h3>
 <form action="search" method="post">
 	<table>
 		<tr>
-			<td><label for="title">Название: </label></td><td><input type="text" name="title" value="" /></td>
+			<td><label for="title"><spring:message code="book.title"/>: </label></td><td><input type="text" name="title" value="" /></td>
 		</tr>
 		<tr>
-			<td><label for="author">Автор: </label></td><td><input type="text" name="author" value="" />
+			<td><label for="author"><spring:message code="book.author"/>: </label></td><td><input type="text" name="author" value="" />
 		</tr>
 		<tr>
-			<td><label for="isbn">ISBN: </label></td><td><input type="text" name="isbn" value=""/>
+			<td><label for="isbn"><spring:message code="book.isbn"/>: </label></td><td><input type="text" name="isbn" value=""/>
 		</tr>
 		<tr>
-			<td><input type="reset" value="Сбросить" /></td><td><input type="submit" value="Поиск" /></td>
+			<td><input type="reset" value="<spring:message code="button.Reset"/>" /></td><td><input type="submit" value="<spring:message code="button.Search"/>" /></td>
 		</tr>
 	</table>
 </form>

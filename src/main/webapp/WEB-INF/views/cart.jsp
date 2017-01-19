@@ -8,10 +8,10 @@
 			<c:if test="${item.itemQuantity != 0}">
 			<tr>
 				<td>
-					<p>Название:</p>
-					<p>Автор:</p>
-					<p>Стоимость:</p>
-					<p>Количество:</p>
+					<p><spring:message code="book.title" />:</p>
+					<p><spring:message code="book.author" />:</p>
+					<p><spring:message code="book.value" />:</p>
+					<p><spring:message code="book.quantity" />:</p>
 				</td>
 				<td>
 					<p>${item.itemName}</p>
@@ -23,7 +23,7 @@
 					<form action="<c:url value="/cart/update"/>" method="post">
 						<p><input type="text" name = "itemQuantity" value="${item.itemQuantity}" size="2" /></p>
 						<p><input type="hidden" name = "itemId" value = "${item.itemId}" /></p>
-						<p><input type="submit" value="Пересчитать" />
+						<p><input type="submit" value="<spring:message code="cart.update" />" />
 					</form>
 				</td>
 			</tr>
@@ -31,17 +31,17 @@
 		</c:forEach>
 		<tr>
 			<c:if test="${cart.total != 0}">
-				<td>Итого:</td>
-				<td>${cart.total} грн.</td>
+				<td><spring:message code="cart.total" />:</td>
+				<td>${cart.total} <spring:message code="book.currency" /></td>
 				<td>
 					<form class="checkout" action="<c:url value="/cart/checkout" />" method="post">
-						<input type="submit" value="Оформить заказ" />
+						<input type="submit" value="<spring:message code="cart.orderNow" />" />
 					</form>
 				</td>
 			</c:if>
 		</tr>
 	</table>
 	<c:if test="${cart.total == 0}">
-				<p>В корзине нет товаров</p>
+				<p><spring:message code="cart.noItems" /></p>
 			</c:if>
 </div>

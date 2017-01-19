@@ -29,6 +29,30 @@ public class DBConfig {
 	@Autowired
 	ApplicationContext context;
 
+	// @Bean
+	// SessionLocaleResolver localeResolver() {
+	//
+	// SessionLocaleResolver resolver = new SessionLocaleResolver();
+	//
+	// resolver.setDefaultLocale(Locale.getDefault());
+	//
+	// return resolver;
+	// }
+	//
+	// @Bean
+	// LocaleChangeInterceptor localeChange() {
+	//
+	// LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
+	// interceptor.setParamName("language");
+	// return interceptor;
+	// }
+	//
+	// @Override
+	// public void addInterceptors(InterceptorRegistry registry) {
+	//
+	// registry.addInterceptor(localeChange());
+	// }
+
 	@Bean
 	DriverManagerDataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();

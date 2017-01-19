@@ -4,5 +4,5 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <header>
-	<p><a href="<c:url value="/"/>">Онлайн-магазин "Буква"</a></p>
+	<p><a href="<c:url value="/"/>"><spring:message code="Header.shopName" /></a></p>
 </header>

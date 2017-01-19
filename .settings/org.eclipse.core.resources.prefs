@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/resources/messages.properties=UTF-8
+encoding//src/main/resources/messages_uk.properties=UTF-8
 encoding//src/main/webapp/WEB-INF/tiles/baseLayout.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/companyInfo.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/contacts.jsp=UTF-8

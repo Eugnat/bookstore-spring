@@ -5,11 +5,11 @@
 
 <nav class="top-navigation">
 			<ul>
-				<li><a href="<c:url value="/"/>">Домашняя</a></li>
-				<li><a href="<c:url value="/info/company"/>">Сведения о компании</a></li>
-				<li><a href="<c:url value="/info/payment"/>">Оплата</a></li>
-				<li><a href="<c:url value="/info/delivery"/>">Доставка</a></li>
-				<li><a href="<c:url value="/info/contacts"/>">Контакты</a></li>
-				<li><a href="<c:url value="/info/search"/>">Поиск</a></li>
+				<li><a href="<c:url value="/"/>"><spring:message code="navigation.home" /></a></li>
+				<li><a href="<c:url value="/info/company"/>"><spring:message code="navigation.companyInfo" /></a></li>
+				<li><a href="<c:url value="/info/payment"/>"><spring:message code="navigation.payment" /></a></li>
+				<li><a href="<c:url value="/info/delivery"/>"><spring:message code="navigation.delivery" /></a></li>
+				<li><a href="<c:url value="/info/contacts"/>"><spring:message code="navigation.contacts" /></a></li>
+				<li><a href="<c:url value="/info/search"/>"><spring:message code="navigation.search" /></a></li>
 			</ul>
 		</nav>
