@@ -32,7 +32,7 @@
 </p>
 <p><label for="language">Язык: </label><form:input id="language" path="language" type="text"/></p><p><form:errors path="language" cssClass="errormessage"/></p>
 <p><label for="copyNumber">Тираж: </label><form:input id="copyNumber" path="copyNumber" type="text"/></p><p><form:errors path="copyNumber" cssClass="errormessage"/></p>
-<p><label for="imageFile">Загрузить файл изображения: </label><form:input id="imageFile" path="imageFile" type="file" /></p>
+<p><label for="imageFile">Загрузить файл изображения: </label><form:input id="imageFile" path="imageFile" type="file" accept="image/jpeg" /></p>
 <p>	
 	<label><input type="reset" value="Сбросить" /></label>
 	<label><input type="submit" value="Сохранить" /></label>

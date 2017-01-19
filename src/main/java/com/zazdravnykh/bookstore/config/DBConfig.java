@@ -14,6 +14,7 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
@@ -29,32 +30,8 @@ public class DBConfig {
 	@Autowired
 	ApplicationContext context;
 
-	// @Bean
-	// SessionLocaleResolver localeResolver() {
-	//
-	// SessionLocaleResolver resolver = new SessionLocaleResolver();
-	//
-	// resolver.setDefaultLocale(Locale.getDefault());
-	//
-	// return resolver;
-	// }
-	//
-	// @Bean
-	// LocaleChangeInterceptor localeChange() {
-	//
-	// LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
-	// interceptor.setParamName("language");
-	// return interceptor;
-	// }
-	//
-	// @Override
-	// public void addInterceptors(InterceptorRegistry registry) {
-	//
-	// registry.addInterceptor(localeChange());
-	// }
-
 	@Bean
-	DriverManagerDataSource dataSource() {
+	public DriverManagerDataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/bookstore_spring?useSSL=false");
@@ -64,7 +41,7 @@ public class DBConfig {
 	}
 
 	@Bean
-	LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean emFactory = new LocalContainerEntityManagerFactoryBean();
 		emFactory.setDataSource(dataSource());
 		emFactory.setPersistenceProviderClass(HibernatePersistenceProvider.class);
@@ -80,7 +57,7 @@ public class DBConfig {
 	}
 
 	@Bean
-	JpaTransactionManager transactionManager() {
+	public JpaTransactionManager transactionManager() {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
 		return transactionManager;
@@ -95,7 +72,7 @@ public class DBConfig {
 	}
 
 	@Bean
-	ViewResolver viewResolver() {
+	public ViewResolver viewResolver() {
 		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
 		resolver.setOrder(-2);
 		resolver.setViewClass(TilesView.class);
@@ -103,14 +80,14 @@ public class DBConfig {
 	}
 
 	@Bean
-	CommonsMultipartResolver multipartResolver() {
+	public MultipartResolver multipartResolver() {
 		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
 		resolver.setMaxUploadSize(1024000);
 		return resolver;
 	}
 
 	@Bean("messageSource")
-	ReloadableResourceBundleMessageSource reloadableResourceBundleMessageSource() {
+	public ReloadableResourceBundleMessageSource reloadableResourceBundleMessageSource() {
 
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
 
@@ -124,7 +101,7 @@ public class DBConfig {
 	}
 
 	@Bean("validator")
-	LocalValidatorFactoryBean validator() {
+	public LocalValidatorFactoryBean validator() {
 
 		LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
 
