@@ -4,5 +4,5 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <div class="main-content">
-			<h3><spring:message code="paymentFinal.selectPayment" />:</h3>
+			<h3><spring:message code="paymentFinal.selectPayment" /></h3>
 		</div>

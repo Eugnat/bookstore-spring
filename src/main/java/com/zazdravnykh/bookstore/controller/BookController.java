@@ -80,10 +80,11 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String processAddBookForm(@ModelAttribute("newBook") @Valid Book newBook, BindingResult result, HttpServletRequest request) throws UnsupportedEncodingException {
+	public String processAddBookForm(@ModelAttribute("newBook") @Valid Book newBook, BindingResult result, HttpServletRequest request, Model model) throws UnsupportedEncodingException {
 
-		if (result.hasErrors())
+		if (result.hasErrors()) {
 			return "addBook";
+		}
 
 		request.setCharacterEncoding("UTF-8");
 
