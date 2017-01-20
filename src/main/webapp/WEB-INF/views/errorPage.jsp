@@ -4,5 +4,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="main-content">
-	<p>Произошла ошибка</p>
+	<p><spring:message code="errorPage.errorMessage" /></p>
 </div>

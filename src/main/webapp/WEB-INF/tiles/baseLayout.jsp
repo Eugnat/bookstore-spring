@@ -8,7 +8,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	 	<link rel="stylesheet" href="<c:url value="/resources/css/styles.css" />">
-		<title>Онлайн-магазин "Буква"</title>
+		<title><spring:message code="baseLayout.pageTitle" /></title>
 	</head>
 	
 	<body>

@@ -5,11 +5,11 @@
 
 <div class="main-content">
 		<c:if test="${empty booklist}">
-			<c:out value="По данным критериям ничего не найдено. Уточните поиск." />
+			<spring:message code="books.nothingFound" />
 		</c:if>
 		<c:forEach items="${booklist}" var="book">
 		<table class="bookshow">
-			<tr><td>Название: <td>${book.title}</td>
+			<tr><td><spring:message code = "book.title" />: <td>${book.title}</td>
 				<td rowspan="6" class="imagecolumn">
 					<a href="<c:url value="/books/book/${book.id}"/>"><img src="<c:url value="/resources/images/${book.isbn}.jpg"/>" width="270" height="425"></a>
 					<form action="<c:url value="/books/addToCart"/>" method="post">
@@ -18,14 +18,14 @@
 					</form>
 				</td>
 			</tr>
-			<tr><td>Автор: </td><td>${book.author}</td></tr>
-			<tr><td>ISBN: </td><td>${book.isbn}</td></tr>
-			<tr><td>Издательство: </td><td>${book.publishingHouse}</td></tr>
-			<tr><td>Год издания: </td><td>${book.issueYear}</td></tr>
-			<tr><td>Цена: </td><td>${book.price} грн.</td></tr>
+			<tr><td><spring:message code = "book.author" />: </td><td>${book.author}</td></tr>
+			<tr><td><spring:message code = "book.isbn" />: </td><td>${book.isbn}</td></tr>
+			<tr><td><spring:message code = "book.publishingHouse" />: </td><td>${book.publishingHouse}</td></tr>
+			<tr><td><spring:message code = "book.issueYear" />: </td><td>${book.issueYear}</td></tr>
+			<tr><td><spring:message code = "book.price" />: </td><td>${book.price} <spring:message code = "book.currency" /></td></tr>
 		</table>
 		<br />
 		</c:forEach>
 		<br />
-		<p><a href="<c:url value="/info/search" />">Вернуться на страницу поиска</a></p>
+		<p><a href="<c:url value="/info/search" />"><spring:message code="books.returnToSearchPage" /></a></p>
 		</div>

@@ -8,10 +8,10 @@
 		<c:forEach items="${cart.itemList}" var="item">
 			<tr>
 				<td>
-					<p>Название:</p>
-					<p>Автор:</p>
-					<p>Стоимость:</p>
-					<p>Количество:</p>
+					<p><spring:message code="book.title" />:</p>
+					<p><spring:message code="book.author" />:</p>
+					<p><spring:message code="book.value" />:</p>
+					<p><spring:message code="book.quantity" />:</p>
 				</td>
 				<td>
 					<p>${item.itemName}</p>
@@ -22,16 +22,16 @@
 			</tr>
 		</c:forEach>
 		<tr>
-				<td>Итого:</td>
+				<td><spring:message code="cart.total" />:</td>
 				<td>
-					<p>${cart.total} грн.</p>
+					<p>${cart.total} <spring:message code="book.currency" /></p>
 				</td>
 			</tr>
 	</table>
 	<form action="<c:url value="/cart/payment" />" method="post">
-		<input type="submit" value="Оплатить" />
+		<input type="submit" value="<spring:message code="button.Pay" />" />
 	</form>
 	<form action="<c:url value="/cart/overview" />" method="get">
-		<input type="submit" value="Вернуться" />
+		<input type="submit" value="<spring:message code="button.Return" />" />
 	</form>
 </div>

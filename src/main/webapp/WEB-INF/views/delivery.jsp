@@ -4,24 +4,22 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <div class="main-content">
-			<h3>Доставка</h3>
-				<h4>Комплектация и целостность товара</h4>
+			<h3><spring:message code="delivery.title" /></h3>
+				<h4><spring:message code="delivery.sentenceOne" /></h4>
 				<ul>
-					<li>Пожалуйста, проверяйте комплектацию, целостность упаковки, отсутствие механических повреждений и документы при получении заказа. 
-					Это можно сделать при работнике службы доставки.</li>
-					<li>Мы не несем ответственности за товар, который не был проверен на наличие механических повреждений или недостающих частей 
-					непосредственно при получении в отделении перевозчика.</li>
-					<li>В случае выявления некомплекта или повреждений, вы имеете право не оплачивать товар и отказаться от его получения.</li>
+					<li><spring:message code="delivery.sentenceTwo" /></li>
+					<li><spring:message code="delivery.sentenceThree" /></li>
+					<li><spring:message code="delivery.sentenceFour" /></li>
 				</ul>
-				<h4>Самовывоз со склада</h4>
-				<p>Услуга самовывоза из офиса доступна ежедневно с 9:30 до 20:30.</p>
-				<h4>Курьерская доставка по Киеву</h4>
-				<p>Стоимость курьерской доставки (лично в руки) составляет 35 грн.</p>
-				<h4>Доставка по Украине</h4>
+				<h4><spring:message code="delivery.sentenceFive" /></h4>
+				<p><spring:message code="delivery.sentenceSix" /></p>
+				<h4><spring:message code="delivery.sentenceSeven" /></h4>
+				<p><spring:message code="delivery.sentenceEight" /></p>
+				<h4><spring:message code="delivery.sentenceNine" /></h4>
 				<ul>
-					<li>Доставка курьером лично в руки Мист Экспресс</li>
-					<li>Доставка на склад "Новой Почты"</li>
-					<li>Курьерская доставка "Новой Почты" (склад - двери)</li>
-					<li>Доставка УкрПочтой</li>
+					<li><spring:message code="delivery.sentenceTen" /></li>
+					<li><spring:message code="delivery.sentenceEleven" /></li>
+					<li><spring:message code="delivery.sentenceTwelve" /></li>
+					<li><spring:message code="delivery.sentenceThirteen" /></li>
 				</ul>
 		</div>

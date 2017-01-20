@@ -4,9 +4,9 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <div class="main-content">
-			<h3>Информация о компании</h3>
-				<p>Книжный интернет-магазин "Буква" работает на рынке в течение 10 лет и за это время успел себя зарекомендовать с отличной стороны.
-				   Самый крупный в Украине интернет-магазин по продажам книг. На нашей онлайн-витрине представлено более 400 тыс. позиций. 
-				   Наша курьерская служба предоставляет уникальный на сегодняшний день сервис доставки заказов клиентам «день-в-день» в заданные интервалы времени (для Киева). 
-				   Логистические партнеры помогают нам обслуживать клиентов во всех регионах Украины.</p>
+			<h3><spring:message code="companyInfo.title" /></h3>
+				<p><spring:message code="companyInfo.sentenceOne" /> <spring:message code="companyInfo.sentenceTwo" /> 
+				   <spring:message code="companyInfo.sentenceThree" /> 
+				   <spring:message code="companyInfo.sentenceFour" /> 
+				   <spring:message code="companyInfo.sentenceFive" /></p>
 </div>

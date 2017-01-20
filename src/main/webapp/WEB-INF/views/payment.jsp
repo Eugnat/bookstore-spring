@@ -4,6 +4,6 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <div class="main-content">
-			<h4>Оплата</h4>
-				<p>Оплата наличным или безналичным расчетом. Возможна оплата в отделении "Новой почты".</p>
+			<h4><spring:message code="payment.title" /></h4>
+				<p><spring:message code="payment.sentenceOne" /></p>
 		</div>

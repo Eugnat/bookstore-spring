@@ -4,7 +4,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <div class="main-content">
-			<h3>Контакты</h3>
-				<p>Главный офис: ул. Саксаганского, 45, Киев, 07034</p>
-				<p>Телефон: +38 (044) 000 00 00</p>
+			<h3><spring:message code="contacts.title" /></h3>
+				<p><spring:message code="contacts.sentenceOne" /></p>
+				<p><spring:message code="contacts.sentenceTwo" /></p>
 </div>

@@ -4,9 +4,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="main-content">
-	<p>Книга добавлена успешно.</p>
+	<p><spring:message code = "bookAdded.success" /></p>
 	<br>
-	<p><a href="<c:url value="/"/>">Вернуться на стартовую страницу</a></p>
+	<p><a href="<c:url value="/"/>"><spring:message code = "bookAdded.returnToHome" /></a></p>
 	<br>
-	<p><a href="<c:url value="/books/add"/>">Добавить еще одну книгу</a></p>
+	<p><a href="<c:url value="/books/add"/>"><spring:message code = "bookAdded.addBook" /></a></p>
 </div>
