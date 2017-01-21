@@ -1,8 +1,17 @@
 package com.zazdravnykh.bookstore.domain;
 
-public class Customer {
+import java.io.Serializable;
 
+import org.hibernate.validator.constraints.NotBlank;
+
+public class Customer implements Serializable {
+
+	private static final long serialVersionUID = -5509235959991855013L;
+
+	@NotBlank
 	private String name;
+
+	@NotBlank
 	private String surname;
 
 	public Customer() {

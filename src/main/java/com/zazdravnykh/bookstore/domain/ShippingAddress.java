@@ -1,21 +1,43 @@
 package com.zazdravnykh.bookstore.domain;
 
-public class ShippingAddress {
+import java.io.Serializable;
 
-	private int houseNumber;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+public class ShippingAddress implements Serializable {
+
+	private static final long serialVersionUID = 1124155792656375708L;
+
+	@NotBlank
+	private String houseNumber;
+
+	@NotBlank
+	@Pattern(regexp = "[0-9]{1,3}", message = "only numbers, no more than 3")
+	private String flatNumber;
+
+	@NotBlank
 	private String street;
+
+	@NotBlank
 	private String city;
+
+	@NotBlank
 	private String state;
-	private int zip;
+
+	@NotBlank
+	@Pattern(regexp = "[0-9]{5}", message = "five-digit zip index")
+	private String zip;
 
 	public ShippingAddress() {
 	}
 
-	public int getHouseNumber() {
+	public String getHouseNumber() {
 		return houseNumber;
 	}
 
-	public void setHouseNumber(int houseNumber) {
+	public void setHouseNumber(String houseNumber) {
 		this.houseNumber = houseNumber;
 	}
 
@@ -43,55 +65,20 @@ public class ShippingAddress {
 		this.state = state;
 	}
 
-	public int getZip() {
+	public String getZip() {
 		return zip;
 	}
 
-	public void setZip(int zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((city == null) ? 0 : city.hashCode());
-		result = prime * result + houseNumber;
-		result = prime * result + ((state == null) ? 0 : state.hashCode());
-		result = prime * result + ((street == null) ? 0 : street.hashCode());
-		result = prime * result + zip;
-		return result;
+	public String getFlatNumber() {
+		return flatNumber;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ShippingAddress other = (ShippingAddress) obj;
-		if (city == null) {
-			if (other.city != null)
-				return false;
-		} else if (!city.equals(other.city))
-			return false;
-		if (houseNumber != other.houseNumber)
-			return false;
-		if (state == null) {
-			if (other.state != null)
-				return false;
-		} else if (!state.equals(other.state))
-			return false;
-		if (street == null) {
-			if (other.street != null)
-				return false;
-		} else if (!street.equals(other.street))
-			return false;
-		if (zip != other.zip)
-			return false;
-		return true;
+	public void setFlatNumber(String flatNumber) {
+		this.flatNumber = flatNumber;
 	}
 
 }

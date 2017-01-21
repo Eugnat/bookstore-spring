@@ -25,6 +25,10 @@
 						<p><input type="hidden" name = "itemId" value = "${item.itemId}" /></p>
 						<p><input type="submit" value="<spring:message code="cart.update" />" />
 					</form>
+					<form action="<c:url value="/cart/delete"/>" method="post">
+						<p><input type="hidden" name = "itemId" value = "${item.itemId}" /></p>
+						<p><input type="submit" value="<spring:message code="button.Delete" />" />
+					</form>
 				</td>
 			</tr>
 			</c:if>
@@ -34,7 +38,8 @@
 				<td><spring:message code="cart.total" />:</td>
 				<td>${cart.total} <spring:message code="book.currency" /></td>
 				<td>
-					<form class="checkout" action="<c:url value="/cart/checkout" />" method="post">
+<%-- 					<form class="checkout" action="<c:url value="/cart/checkout" />" method="post"> --%>
+						<form class="checkout" action="<c:url value="/order" />" method="post">
 						<input type="submit" value="<spring:message code="cart.orderNow" />" />
 					</form>
 				</td>

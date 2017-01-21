@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+<var name="customer" class="com.zazdravnykh.bookstore.domain.Customer" />
+<var name="address" class="com.zazdravnykh.bookstore.domain.ShippingAddress" />
+<var name="card" class="com.zazdravnykh.bookstore.domain.CreditCard" />
+
+                          
+<view-state id="intro" view="customerRegistration" model="customer">
+	<transition on="submit" to="shippingAddress" />
+</view-state>
+
+<view-state id="shippingAddress" view="shippingAddress" model="address">
+	<transition on="back" to="intro" validate="false" />
+	<transition on="submit" to="buildOrder" />
+</view-state>
+
+<view-state id="buildOrder" view="buildOrder">
+	<transition on="back" to="shippingAddress" validate="false" />
+	<transition on="submit" to="creditCard" />
+</view-state>
+
+<view-state id="creditCard" view="creditCard" model="card">
+	<transition on="back" to="buildOrder" validate="false" />
+	<transition on="submit" to="thankYou" />
+</view-state>
+
+<end-state id="thankYou" view="thankYouPage" />
+
+<end-state id="cartView" view="cart" />
+
+<global-transitions>
+	<transition on="cancel" to="cartView" validate="false" />
+</global-transitions>
+
+</flow>

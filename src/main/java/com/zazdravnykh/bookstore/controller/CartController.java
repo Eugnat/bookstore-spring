@@ -47,6 +47,26 @@ public class CartController {
 
 	}
 
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String removeOrderItem(@RequestParam("itemId") String itemId, HttpServletRequest request) {
+
+		int id;
+
+		Cart cart = (Cart) request.getSession().getAttribute("cart");
+
+		try {
+			id = Integer.parseInt(itemId);
+
+		} catch (NumberFormatException e) {
+			return "redirect:/errorPage";
+		}
+
+		cart = cartService.removeOrderItem(id, cart);
+
+		return "redirect:/cart/overview";
+
+	}
+
 	@RequestMapping(value = "/checkout", method = RequestMethod.POST)
 	public String checkout(HttpServletRequest request) {
 

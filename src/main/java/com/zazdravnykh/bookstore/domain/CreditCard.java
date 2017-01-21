@@ -1,55 +1,70 @@
 package com.zazdravnykh.bookstore.domain;
 
-public class CreditCard {
+import java.io.Serializable;
 
-	private long cardNumber;
+import javax.validation.constraints.Pattern;
 
-	private int ccvNumber;
+import org.hibernate.validator.constraints.NotBlank;
 
-	private String cardHolderName;
+public class CreditCard implements Serializable {
 
-	private String cardHolderSurname;
+	private static final long serialVersionUID = 8841312676466496531L;
+
+	@NotBlank
+	@Pattern(regexp = "[0-9]{16}", message = "12 digit number")
+	private String cardNumber;
+
+	@NotBlank
+	@Pattern(regexp = "[0-9]{3}", message = "3 digit number")
+	private String ccvNumber;
+
+	@NotBlank
+	private String name;
+
+	@NotBlank
+	@Pattern(regexp = "[0-9]{2}/[0-9]{2}")
+	private String validity;
 
 	public CreditCard() {
 	}
 
-	public long getCardNumber() {
+	public String getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(long cardNumber) {
+	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 
-	public int getCcvNumber() {
+	public String getCcvNumber() {
 		return ccvNumber;
 	}
 
-	public void setCcvNumber(int ccvNumber) {
+	public void setCcvNumber(String ccvNumber) {
 		this.ccvNumber = ccvNumber;
 	}
 
-	public String getCardHolderName() {
-		return cardHolderName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCardHolderName(String cardHolderName) {
-		this.cardHolderName = cardHolderName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getCardHolderSurname() {
-		return cardHolderSurname;
+	public String getValidity() {
+		return validity;
 	}
 
-	public void setCardHolderSurname(String cardHolderSurname) {
-		this.cardHolderSurname = cardHolderSurname;
+	public void setValidity(String validity) {
+		this.validity = validity;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (cardNumber ^ (cardNumber >>> 32));
+		result = prime * result + ((cardNumber == null) ? 0 : cardNumber.hashCode());
 		return result;
 	}
 
@@ -62,7 +77,10 @@ public class CreditCard {
 		if (getClass() != obj.getClass())
 			return false;
 		CreditCard other = (CreditCard) obj;
-		if (cardNumber != other.cardNumber)
+		if (cardNumber == null) {
+			if (other.cardNumber != null)
+				return false;
+		} else if (!cardNumber.equals(other.cardNumber))
 			return false;
 		return true;
 	}

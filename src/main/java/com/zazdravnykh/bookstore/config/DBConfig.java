@@ -16,10 +16,8 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
-import org.springframework.web.servlet.view.tiles3.TilesView;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 import com.zazdravnykh.bookstore.repository.BookDAO;
 
@@ -70,12 +68,20 @@ public class DBConfig {
 		tiles.setCheckRefresh(true);
 		return tiles;
 	}
+	//
+	// @Bean(name = "viewResolver")
+	// public ViewResolver viewResolver() {
+	// UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+	// resolver.setOrder(-2);
+	// resolver.setViewClass(TilesView.class);
+	// return resolver;
+	// }
 
-	@Bean
-	public ViewResolver viewResolver() {
-		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-		resolver.setOrder(-2);
-		resolver.setViewClass(TilesView.class);
+	@Bean(name = "tilesViewResolver")
+	TilesViewResolver tilesViewResolver() {
+
+		TilesViewResolver resolver = new TilesViewResolver();
+
 		return resolver;
 	}
 

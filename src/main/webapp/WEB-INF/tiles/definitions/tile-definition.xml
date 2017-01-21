@@ -80,4 +80,24 @@
 	<put-attribute name="mainContent" value="/WEB-INF/views/login.jsp" />
 </definition>
 
+<definition name="customerRegistration" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/customerRegistration.jsp" />
+</definition>
+
+<definition name="shippingAddress" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/shippingAddress.jsp" />
+</definition>
+
+<definition name="buildOrder" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/buildOrder.jsp" />
+</definition>
+
+<definition name="creditCard" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/creditCard.jsp" />
+</definition>
+
+<definition name="thankYouPage" extends="baseLayout">
+	<put-attribute name="mainContent" value="/WEB-INF/views/thankYouPage.jsp" />
+</definition>
+
 </tiles-definitions>
