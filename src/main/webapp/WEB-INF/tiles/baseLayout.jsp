@@ -12,7 +12,7 @@
 	</head>
 	
 	<body>
-		<tiles:insertAttribute name="header" />
+		<tiles:insertAttribute name="header"/>
 		<tiles:insertAttribute name="loginBar" />
 		<tiles:insertAttribute name="topNavigation" />
 		<tiles:insertAttribute name="sideNavigation" />

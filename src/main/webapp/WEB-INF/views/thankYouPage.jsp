@@ -5,5 +5,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <div class="main-content">
-Thank you page
+<p><spring:message code="thankYou.finalMessage" /></p>
+<p><a href="<c:url value="/"/>"><spring:message code="thankYou.backToHome" /></a></p>
 </div>

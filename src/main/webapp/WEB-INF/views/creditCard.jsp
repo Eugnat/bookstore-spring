@@ -6,14 +6,14 @@
 
 <div class="main-content">
 <form:form modelAttribute="card" action="${flowExecutionUrl}">
-	<legend>Введите данные карты для оплаты</legend>
-	<p><label for="cardNumber">Номер карты: </label><form:input id="cardNumber" path="cardNumber" type="text"/> <form:errors path="cardNumber" /></p>
-	<p><label for="ccvNumber">Номер CCV: </label><form:input id="ccvNumber" path="ccvNumber" type="text"/> <form:errors path="ccvNumber" /></p>
-	<p><label for="name">Имя и фамилия владельца: </label><form:input id="name" path="name" type="text"/> <form:errors path="name" /></p>
-	<p><label for="validity">Срок действия (мм/гг): </label><form:input id="validity" path="validity" type="text"/> <form:errors path="validity" /></p>
+	<legend><spring:message code="creditCard.intro" /></legend>
+	<p><label for="cardNumber"><spring:message code="creditCard.cardNumber" />: </label><form:input id="cardNumber" path="cardNumber" type="text"/> <form:errors path="cardNumber" /></p>
+	<p><label for="ccvNumber"><spring:message code="creditCard.ccvNumber" />: </label><form:input id="ccvNumber" path="ccvNumber" type="text"/> <form:errors path="ccvNumber" /></p>
+	<p><label for="name"><spring:message code="creditCard.name" />: </label><form:input id="name" path="name" type="text"/> <form:errors path="name" /></p>
+	<p><label for="validity"><spring:message code="creditCard.validity" />: </label><form:input id="validity" path="validity" type="text"/> <form:errors path="validity" /></p>
 	<input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
-	<input type="submit" name="_eventId_back" value="Назад" />
-	<input type="submit" name="_eventId_submit" value="Дальше" />
-	<input type="submit" name="_eventId_cancel" value="Отменить" />
+	<input type="submit" name="_eventId_back" value="<spring:message code="button.Back" />" />
+	<input type="submit" name="_eventId_submit" value="<spring:message code="button.Next" />" />
+	<input type="submit" name="_eventId_cancel" value="<spring:message code="button.Cancel" />" />
 </form:form>
 </div>

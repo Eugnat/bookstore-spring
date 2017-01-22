@@ -10,24 +10,24 @@ public class ShippingAddress implements Serializable {
 
 	private static final long serialVersionUID = 1124155792656375708L;
 
-	@NotBlank
+	@NotBlank(message = "{NotBlank.ShippingAddress.houseNumber.validation}")
 	private String houseNumber;
 
-	@NotBlank
-	@Pattern(regexp = "[0-9]{1,3}", message = "only numbers, no more than 3")
+	@NotBlank(message = "{NotBlank.ShippingAddress.flatNumber.validation}")
+	@Pattern(regexp = "[0-9]{1,3}", message = "{Pattern.ShippingAddress.flatNumber.validation}")
 	private String flatNumber;
 
-	@NotBlank
+	@NotBlank(message = "{NotBlank.ShippingAddress.street.validation}")
 	private String street;
 
-	@NotBlank
+	@NotBlank(message = "{NotBlank.ShippingAddress.city.validation}")
 	private String city;
 
-	@NotBlank
+	@NotBlank(message = "{NotBlank.ShippingAddress.state.validation}")
 	private String state;
 
-	@NotBlank
-	@Pattern(regexp = "[0-9]{5}", message = "five-digit zip index")
+	@NotBlank(message = "{NotBlank.ShippingAddress.zip.validation}")
+	@Pattern(regexp = "[0-9]{5}", message = "{Pattern.ShippingAddress.zip.validation}")
 	private String zip;
 
 	public ShippingAddress() {

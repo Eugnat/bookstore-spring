@@ -23,5 +23,5 @@
 			<tr><td><spring:message code="book.price" />: </td><td>${book.price} <spring:message code="book.currency" /></td></tr>
 		</table>
 		<br />
-		</c:forEach>
+</c:forEach>
 </div>

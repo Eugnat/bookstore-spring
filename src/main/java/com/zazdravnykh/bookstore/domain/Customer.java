@@ -8,10 +8,10 @@ public class Customer implements Serializable {
 
 	private static final long serialVersionUID = -5509235959991855013L;
 
-	@NotBlank
+	@NotBlank(message = "{NotBlank.Customer.name.validation}")
 	private String name;
 
-	@NotBlank
+	@NotBlank(message = "{NotBlank.Customer.surname.validation}")
 	private String surname;
 
 	public Customer() {

@@ -10,19 +10,19 @@ public class CreditCard implements Serializable {
 
 	private static final long serialVersionUID = 8841312676466496531L;
 
-	@NotBlank
-	@Pattern(regexp = "[0-9]{16}", message = "12 digit number")
+	@NotBlank(message = "{NotBlank.CreditCard.cardNumber.validation}")
+	@Pattern(regexp = "[0-9]{16}", message = "{Pattern.CreditCard.cardNumber.validation}")
 	private String cardNumber;
 
-	@NotBlank
-	@Pattern(regexp = "[0-9]{3}", message = "3 digit number")
+	@NotBlank(message = "{NotBlank.CreditCard.ccvNumber.validation}")
+	@Pattern(regexp = "[0-9]{3}", message = "{Pattern.CreditCard.ccvNumber.validation}")
 	private String ccvNumber;
 
-	@NotBlank
+	@NotBlank(message = "{NotBlank.CreditCard.name.validation}")
 	private String name;
 
 	@NotBlank
-	@Pattern(regexp = "[0-9]{2}/[0-9]{2}")
+	@Pattern(regexp = "[0-9]{2}/[0-9]{2}", message = "{Pattern.CreditCard.validity.validation}")
 	private String validity;
 
 	public CreditCard() {
