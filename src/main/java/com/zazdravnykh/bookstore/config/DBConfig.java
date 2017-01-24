@@ -3,8 +3,6 @@ package com.zazdravnykh.bookstore.config;
 import java.util.Properties;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -25,16 +23,19 @@ import com.zazdravnykh.bookstore.repository.BookDAO;
 @EnableJpaRepositories(basePackageClasses = BookDAO.class)
 public class DBConfig {
 
-	@Autowired
-	ApplicationContext context;
+	// @Autowired
+	// ApplicationContext context;
 
 	@Bean
 	public DriverManagerDataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/bookstore_spring?useSSL=false");
+		// dataSource.setUrl("jdbc:mysql://localhost:3306/freelanc_bookstore_spring");
 		dataSource.setUsername("root");
+		// dataSource.setUsername("freelanc_eugnat");
 		dataSource.setPassword("root");
+		// dataSource.setPassword("lornat45Ex");
 		return dataSource;
 	}
 
@@ -47,6 +48,7 @@ public class DBConfig {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		// properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		// properties.setProperty("hibernate.hbm2ddl.auto", "validate");
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.format_sql", "false");
 		emFactory.setJpaProperties(properties);

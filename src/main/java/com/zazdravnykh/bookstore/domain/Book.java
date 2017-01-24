@@ -17,6 +17,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity(name = "Book")
+// @Table(name = "book")
 public class Book {
 
 	@Id

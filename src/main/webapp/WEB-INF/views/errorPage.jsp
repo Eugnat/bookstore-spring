@@ -5,4 +5,11 @@
 
 <div class="main-content">
 	<p><spring:message code="errorPage.errorMessage" /></p>
+	
+	 <!--
+    Failed URL: ${url}
+    Exception:  ${exception.message}
+        <c:forEach items="${exception.stackTrace}" var="ste">    ${ste} 
+    </c:forEach>
+  -->
 </div>

@@ -5,7 +5,7 @@
 
 <div class="main-content">
 <h3><spring:message code="searchPage.enterCriteria" /></h3>
-<form action="search" method="post">
+<form action="search" method="post" accept-charset="utf-8">
 	<table>
 		<tr>
 			<td><label for="title"><spring:message code="book.title"/>: </label></td><td><input type="text" name="title" value="" /></td>
