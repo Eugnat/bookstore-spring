@@ -29,13 +29,10 @@ public class DBConfig {
 	@Bean
 	public DriverManagerDataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/bookstore_spring?useSSL=false");
-		// dataSource.setUrl("jdbc:mysql://localhost:3306/freelanc_bookstore_spring");
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/bookstore_spring?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 		dataSource.setUsername("root");
-		// dataSource.setUsername("freelanc_eugnat");
 		dataSource.setPassword("root");
-		// dataSource.setPassword("lornat45Ex");
 		return dataSource;
 	}
 
@@ -46,9 +43,9 @@ public class DBConfig {
 		emFactory.setPersistenceProviderClass(HibernatePersistenceProvider.class);
 		emFactory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-		// properties.setProperty("hibernate.hbm2ddl.auto", "create");
-		// properties.setProperty("hibernate.hbm2ddl.auto", "validate");
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		properties.setProperty("hibernate.hbm2ddl.auto", "validate");
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.format_sql", "false");
 		emFactory.setJpaProperties(properties);
@@ -70,14 +67,6 @@ public class DBConfig {
 		tiles.setCheckRefresh(true);
 		return tiles;
 	}
-	//
-	// @Bean(name = "viewResolver")
-	// public ViewResolver viewResolver() {
-	// UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-	// resolver.setOrder(-2);
-	// resolver.setViewClass(TilesView.class);
-	// return resolver;
-	// }
 
 	@Bean(name = "tilesViewResolver")
 	TilesViewResolver tilesViewResolver() {

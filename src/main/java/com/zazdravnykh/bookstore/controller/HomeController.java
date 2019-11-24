@@ -29,13 +29,11 @@ public class HomeController {
 			request.getSession().setAttribute("cart", cart);
 		}
 
-		List<Book> bookList = bookService.showAllBooks();
+		List<Book> bookList = bookService.findFirstTen();
 
 		Random random = new Random();
 
 		Collections.shuffle(bookList, random);
-
-		bookList = bookList.subList(0, 10);
 
 		model.addAttribute("booklist", bookList);
 

@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,6 +45,12 @@ public class BookServiceImpl implements BookService {
 
 		bookDAO.save(book);
 
+	}
+
+	@Override
+	public List<Book> findFirstTen() {
+		Pageable page = new PageRequest(0, 10);
+		return bookDAO.findFirstTenBooks(page);
 	}
 
 	@Override

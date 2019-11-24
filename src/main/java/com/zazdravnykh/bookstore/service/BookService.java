@@ -10,6 +10,8 @@ public interface BookService {
 
 	Book showBookById(int id);
 
+	List<Book> findFirstTen();
+
 	void saveBook(Book book);
 
 	List<Book> findByCategory(String category);
